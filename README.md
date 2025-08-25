@@ -1,13 +1,20 @@
-# probe-tool
-Probe Tool is a lightweight Python reconnaissance utility for penetration testing. It automates subdomain enumeration, port scanning, directory brute force, and banner grabbing, helping security researchers quickly identify attack surfaces and potential vulnerabilities.
+# 🔎 Probe Tool
 
+A simple Python reconnaissance tool for penetration testing.
 
-✨ Features
+## Features
+- Subdomain enumeration
+- Port scanning
+- Directory brute force
+- Banner grabbing
 
-* Subdomain Enumeration – discover live subdomains from a wordlist
+## ⚡ Usage
+```bash
+python3 probe.py --domain example.com
+python3 probe.py --host 192.168.1.10
+python3 probe.py --url http://example.com
+```
 
-* Port Scanning – check common ports and identify open services
-
-* Directory Brute Force – uncover hidden directories and files on web servers
-  
-* Banner Grabbing – fingerprint services by capturing response banners
+## 📂 Wordlists
+- Place your wordlists in `wordlists/`.
+- Example: `subs.txt`, `dirs.txt`.
