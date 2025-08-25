@@ -2,7 +2,7 @@
 
 A simple Python reconnaissance tool for penetration testing.
 
-## Features
+## Attributes
 - Subdomain enumeration
 - Port scanning
 - Directory brute force
