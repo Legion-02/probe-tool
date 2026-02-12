@@ -288,6 +288,8 @@ Integration with vulnerability scanners
 
 Docker containerization
 
-👨‍💻 Author
-Anush
-Cyber Security Enthusiast
+👨‍💻 Author   
+
+Anush P
+
+| Cyber Security Enthusiast |
