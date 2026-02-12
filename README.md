@@ -288,6 +288,77 @@ Integration with vulnerability scanners
 
 Docker containerization
 
+
+##🖥️ Sample Output
+🔎 Subdomain Enumeration
+Command
+python probe.py subs example.com -w wordlists/subs.txt -v
+
+Output
+[+] Subdomain: http://dev.example.com
+[+] Subdomain: http://mail.example.com
+[+] Subdomain: http://api.example.com
+[+] Subdomain: http://admin.example.com
+
+http://admin.example.com
+http://api.example.com
+http://dev.example.com
+http://mail.example.com
+
+JSON Output (--json-out results.json)
+{
+  "domain": "example.com",
+  "found": [
+    "http://admin.example.com",
+    "http://api.example.com",
+    "http://dev.example.com",
+    "http://mail.example.com"
+  ]
+}
+
+🚪 Port Scanning + Banner Grabbing
+Command
+python probe.py ports example.com -p 22,80,443 -v
+
+Output
+93.184.216.34:22  |  SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.3
+93.184.216.34:80  |  HTTP/1.1 200 OK
+93.184.216.34:443 |  HTTP/1.1 400 Bad Request
+
+
+Without verbose mode:
+
+93.184.216.34:22
+93.184.216.34:80
+93.184.216.34:443
+
+CSV Output (--csv-out ports.csv)
+host,port,banner
+93.184.216.34,22,SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.3
+93.184.216.34,80,HTTP/1.1 200 OK
+93.184.216.34,443,HTTP/1.1 400 Bad Request
+
+📂 Directory Bruteforce
+Command
+python probe.py dirs http://example.com -w wordlists/dirs.txt
+
+Output
+http://example.com/admin
+http://example.com/login
+http://example.com/dashboard
+http://example.com/uploads
+
+JSON Output
+{
+  "base_url": "http://example.com",
+  "found": [
+    "http://example.com/admin",
+    "http://example.com/dashboard",
+    "http://example.com/login",
+    "http://example.com/uploads"
+  ]
+}
+
 👨‍💻 Author   
 
 Anush P
