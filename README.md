@@ -1,404 +1,176 @@
+# Probe Tool
 
-📡 Probe-Tool — Semantic Python Probing & Utility Toolkit
-A modern Python tool for intelligent data probing, analysis, and automation — designed for performance, extensibility, and developer productivity.
+Lightweight multithreaded reconnaissance utility for **authorized security testing, lab practice, and networking research**.
 
-A clean, professional, and user-friendly project README you can drop into README.md in your repo:
+## Overview
 
-🚀 Overview
-Probe-Tool is a comprehensive Python-based utility for probing, scanning, and analyzing structured datasets or code patterns with speed and accuracy. Whether you’re building automation workflows, data research tooling, or developer utilities, Probe-Tool provides a flexible toolkit for extracting insights and performing intelligent operations.
+Probe Tool is a Python command-line project built to perform three practical reconnaissance tasks:
 
-✨ Key Highlights
+- **Subdomain enumeration** using a wordlist and HTTP probing
+- **TCP port scanning** with optional banner grabbing
+- **Directory bruteforcing** against a target web application
 
-🧠 Smart pattern detection and probing logic
+The project is designed to be simple to run, easy to understand, and strong enough to showcase practical cybersecurity and Python development skills in a portfolio.
 
-🧰 Modular components for extension and customization
+> Use this tool only on systems you own or are explicitly authorized to assess.
 
-📦 Easy installation and usage
+## Features
 
-🧪 Built-in tests and example workflows
+- Clean CLI interface using `argparse`
+- Multithreaded execution with `ThreadPoolExecutor`
+- Retry-aware HTTP requests using `requests` and `urllib3`
+- Wordlist-driven recon workflow
+- JSON and CSV export support
+- Hostname to IP resolution for port scanning
+- Banner grabbing for basic service identification
+- Organized project structure for learning and extension
 
-📌 Features
-✔ Fast and efficient probing logic
-✔ Extensible plugin-style architecture
-✔ CLI interface for quick interactions
-✔ Supports integration with other utilities and scripts
-✔ Well-documented API and examples
-✔ Unit tests included for robustness
+## Project Structure
 
-📦 Installation
+```text
+probe-tool/
+├── probe.py
+├── README.md
+├── requirements.txt
+├── .gitignore
+└── wordlists/
+    ├── dirs.txt
+    └── subs.txt
+```
+
+## Installation
+
+```bash
 git clone https://github.com/Legion-02/probe-tool.git
 cd probe-tool
+python -m venv venv
+```
+
+### Windows
+
+```bash
+venv\Scripts\activate
 pip install -r requirements.txt
-Or install directly from PyPI (if published):
+```
 
-pip install probe-tool
-▶️ Usage
-From shell:
+### Linux / Kali
 
+```bash
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+## Usage
+
+Show help:
+
+```bash
 python probe.py --help
-Example command:
+```
 
-python probe.py analyze ./data/input.json --verbose
-📄 For detailed API usage, see the USAGE.md or comments in each module.
+### 1. Subdomain Enumeration
 
-🧪 Examples
-🚀 Quick Scan
-A simple example of probing a dataset:
-
-from probe import Probe
-
-p = Probe("path/to/data")
-results = p.scan(pattern="user_login")
-print(results)
-📊 Advanced Pattern
-python probe.py scan --pattern "error|warning" --output report.md
-🛠 Development
-Clone the repo and install dev dependencies:
-
-git clone https://github.com/Legion-02/probe-tool.git
-cd probe-tool
-pip install -e .[dev]
-Run tests:
-
-pytest
-📄 Project Resume (for GitHub & Hiring)
-🧾 Project Summary
-Name: Probe-Tool
-Type: Python CLI & SDK
-Role: Maintainer & Lead Developer
-Languages: Python
-
-Description:
-Probe-Tool is a powerful and extensible Python utility designed to perform structured probing, pattern detection, and data/code analysis. It enables developers to quickly scan targets, extract meaningful insights, and automate workflows across datasets or codebases. Built for performance and flexibility, Probe-Tool simplifies complex probing needs while providing a clean API for integration in larger pipelines.
-
-🛠 Responsibilities
-Architected the core probe engine and CLI interface
-
-Designed modular structure to support plugins and extensions
-
-Implemented robust test suite for stability and correctness
-
-Created user-friendly documentation and examples
-
-💡 Achievements
-✔ Delivered a flexible and extensible toolkit
-✔ Achieved clear, maintainable codebase
-✔ Included automated tests and example workflows
-✔ Documentation aimed at both users and contributors
-
-📬 Contributing
-Contributions, issues, and feature requests are welcome!
-Please review CONTRIBUTING.md for details.
-
-📜 License
-Released under the MIT License.
-
-📌 Tips to Improve
-Add badges for build status, PyPI version, test coverage.
-
-Include screenshots or terminal GIFs showing output.
-
-Provide API reference and annotated examples. 
-
-If you share more details about what your probe.py does (its purpose, main classes/functions, and sample output), I can revise this README and resume to be exactly accurate for your project.
-
-
-You said:
-
-create me a readme which will impress the hr and those who view my project and at last add author anush cyber secuirty enthusiast
-
-ChatGPT said:
-Perfect 🔥 I’ve reviewed your actual probe.py code, and this is a real, clean, well-structured reconnaissance utility — multithreaded, retry-handled HTTP sessions, banner grabbing, structured JSON/CSV output, and CLI subcommands.
-
-Below is a high-impact, HR-impressing, resume-ready README.md tailored specifically to your implementation.
-
-You can copy-paste this directly into your GitHub README.md.
-
-🛰️ Probe Tool
-Lightweight Multithreaded Reconnaissance Utility (Authorized Use Only)
-A fast, modular, and production-ready Python reconnaissance tool designed for security testing, research, and learning purposes.
-
-🚀 Overview
-Probe Tool is a lightweight yet powerful reconnaissance utility built in Python.
-It enables security professionals and learners to perform:
-
-🔍 Subdomain Enumeration
-
-🚪 TCP Port Scanning
-
-📡 Banner Grabbing
-
-📂 Directory Bruteforcing
-
-The tool is designed with performance, reliability, and clean architecture in mind.
-It uses multithreading, retry logic, structured output, and a professional CLI interface.
-
-⚠️ Intended strictly for authorized testing and educational purposes only.
-
-✨ Key Features
-🔎 Subdomain Enumeration
-Wordlist-based discovery
-
-Multithreaded HTTP probing
-
-Retry-enabled session handling
-
-Automatic filtering of inactive domains
-
-🚪 Port Scanning
-Scans common ports by default
-
-Custom port selection supported
-
-Multithreaded socket scanning
-
-DNS resolution for hostnames
-
-📡 Banner Grabbing
-Lightweight TCP banner extraction
-
-HTTP header inspection
-
-Optional verbose output for analysis
-
-📂 Directory Bruteforce
-Wordlist-based path discovery
-
-Intelligent response filtering (200, 301, 403, etc.)
-
-Redirect-aware scanning
-
-📊 Structured Output
-Export results to:
-
-JSON
-
-CSV
-
-Clean, automation-friendly format
-
-🛠️ Technical Highlights
-This project demonstrates:
-
-✅ Clean CLI architecture using argparse
-
-✅ Thread pooling with ThreadPoolExecutor
-
-✅ Retry logic using requests + urllib3 Retry
-
-✅ Socket-level TCP scanning
-
-✅ Structured logging
-
-✅ Modular and extensible design
-
-✅ Type hinting for maintainability
-
-✅ Organized output handling
-
-📦 Installation
-git clone https://github.com/Legion-02/probe-tool.git
-cd probe-tool
-pip install -r requirements.txt
-Or install dependencies manually:
-
-pip install requests
-▶️ Usage
-🔎 Subdomain Enumeration
+```bash
 python probe.py subs example.com -w wordlists/subs.txt
-Export to JSON:
+```
 
-python probe.py subs example.com --json-out results.json
-🚪 Port Scanning
-Scan common ports:
+Export results:
 
-python probe.py ports example.com
+```bash
+python probe.py subs example.com --json-out output/subdomains.json --csv-out output/subdomains.csv
+```
+
+### 2. Port Scanning
+
+Scan default common ports:
+
+```bash
+python probe.py ports scanme.nmap.org
+```
+
 Scan specific ports:
 
-python probe.py ports example.com -p 22,80,443
+```bash
+python probe.py ports scanme.nmap.org -p 22,80,443 -v
+```
+
 Disable banner grabbing:
 
-python probe.py ports example.com --no-banners
-📂 Directory Bruteforce
+```bash
+python probe.py ports scanme.nmap.org --no-banners
+```
+
+### 3. Directory Bruteforce
+
+```bash
 python probe.py dirs http://example.com -w wordlists/dirs.txt
-Export to CSV:
+```
 
-python probe.py dirs http://example.com --csv-out output.csv
-⚙️ Architecture Design
-Probe Tool follows a modular structure:
+Export results:
 
-session_with_retries() → Reliable HTTP handling
+```bash
+python probe.py dirs http://example.com --json-out output/dirs.json --csv-out output/dirs.csv
+```
 
-subdomain_enum() → Concurrent subdomain discovery
+## Example Output
 
-port_scan() → Multithreaded TCP scanning
+### Port Scan
 
-banner_grab() → Lightweight service fingerprinting
+```text
+========== Port Scan ==========
+45.33.32.156:22
+80.33.32.156:80
+45.33.32.156:443
+```
 
-dir_bruteforce() → Intelligent directory probing
+### Directory Bruteforce
 
-Output helpers for automation workflows
-
-This makes the tool easy to extend for:
-
-OSINT integrations
-
-Vulnerability detection modules
-
-Automation pipelines
-
-SOC lab environments
-
-🧠 Why This Project Matters
-This project demonstrates practical understanding of:
-
-Networking fundamentals (TCP sockets)
-
-Web protocols (HTTP headers, status codes)
-
-Concurrent programming
-
-Automation scripting
-
-Secure coding practices
-
-Structured logging & reporting
-
-It reflects hands-on cybersecurity tooling development rather than theoretical knowledge.
-
-🔐 Disclaimer
-This tool is intended for:
-
-Authorized penetration testing
-
-Educational use
-
-Personal lab environments
-
-Do not use against systems without explicit permission.
-
-📈 Future Enhancements
-Service fingerprinting detection
-
-Rate limiting control
-
-Asynchronous implementation
-
-Integration with vulnerability scanners
-
-Docker containerization
-
-
-🖥️ Sample Output
-
-🔎 Subdomain Enumeration
-Command
-
-python probe.py subs example.com -w wordlists/subs.txt -v
-
-Output
-[+] Subdomain: http://dev.example.com
-
-[+] Subdomain: http://mail.example.com
-
-[+] Subdomain: http://api.example.com
-
-[+] Subdomain: http://admin.example.com
-
-
-http://admin.example.com
-
-http://api.example.com
-
-http://dev.example.com
-
-http://mail.example.com
-
-
-JSON Output (--json-out results.json)
-{
-  "domain": "example.com",
-  "found": [
-    "http://admin.example.com",
-    
-    "http://api.example.com",
-    
-    "http://dev.example.com",
-    
-    "http://mail.example.com"
-    
-  ]
-}
-
-🚪 Port Scanning + Banner Grabbing
-
-Command
-python probe.py ports example.com -p 22,80,443 -v
-
-Output
-93.184.216.34:22  |  SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.3
-
-93.184.216.34:80  |  HTTP/1.1 200 OK
-
-93.184.216.34:443 |  HTTP/1.1 400 Bad Request
-
-
-
-Without verbose mode:
-
-93.184.216.34:22
-
-93.184.216.34:80
-
-93.184.216.34:443
-
-
-CSV Output (--csv-out ports.csv)
-
-host,port,banner
-
-93.184.216.34,22,SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.3
-
-93.184.216.34,80,HTTP/1.1 200 OK
-
-93.184.216.34,443,HTTP/1.1 400 Bad Request
-
-
-
-
-📂 Directory Bruteforce
-
-Command
-
-python probe.py dirs http://example.com -w wordlists/dirs.txt
-
-Output
+```text
+========== Directory Bruteforce ==========
 http://example.com/admin
-
 http://example.com/login
+http://example.com/robots.txt
+```
 
-http://example.com/dashboard
+## Skills Demonstrated
 
-http://example.com/uploads
+This project highlights:
 
+- Python scripting for security automation
+- Networking fundamentals and socket programming
+- Concurrent execution for faster scanning
+- HTTP response handling and retry logic
+- File export for reporting and automation workflows
+- CLI application design and input validation
 
-JSON Output
-{
-  "base_url": "http://example.com",
-  "found": [
-    "http://example.com/admin", 
-    
-    "http://example.com/dashboard",
-    
-    "http://example.com/login",
-    
-    "http://example.com/uploads"
-    
-  ]
-}
+## Why This Project Is Valuable
 
-👨‍💻 Author   
+Probe Tool is a practical project for aspiring SOC analysts, blue team learners, and cybersecurity beginners because it demonstrates hands-on understanding of how reconnaissance works at a technical level while keeping the implementation readable and modular.
 
-Anush P
+It can also be extended later with:
 
-| Cyber Security Enthusiast |
+- DNS record lookups
+- WHOIS support
+- Service fingerprinting improvements
+- HTML report generation
+- Passive recon sources
+
+## Safe Use Note
+
+This tool is meant for:
+
+- Personal lab environments
+- CTFs and training ranges
+- Security research with permission
+- Educational demonstrations
+
+Do not use it against third-party infrastructure without explicit authorization.
+
+## Resume-Friendly Project Description
+
+**Probe Tool** is a Python-based reconnaissance utility developed for authorized security testing and lab-based research. It performs subdomain enumeration, TCP port scanning, banner grabbing, and directory bruteforcing using multithreading and retry-aware HTTP requests. The project demonstrates practical knowledge of networking, sockets, concurrent execution, structured output generation, and security-focused CLI tool development.
+
+## Author
+
+**Anush**  
+Cyber Security Enthusiast
